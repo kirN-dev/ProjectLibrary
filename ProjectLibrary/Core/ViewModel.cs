@@ -7,25 +7,27 @@ using System.Threading.Tasks;
 
 namespace ProjectLibrary.Core
 {
-	public  class ViewModel : ObservableObject
+	public abstract class ViewModel : ObservableObject
 	{
 		private string _title;
 
 		public string Title
 		{
-			get { return _title; }
+			get => _title;
 			set => Set(value, ref _title);
 		}
 
-		public void Set<T>(T value, ref T filed, [CallerMemberName] string? propertyName = null)
+		public bool Set<T>(T value, ref T filed, [CallerMemberName] string? propertyName = null)
 		{
 			if (Equals(value, filed))
 			{
-				return;
+				return false;
 			}
 
 			filed = value;
 			OnPropertyChanged(propertyName);
+
+			return true;
 		}
 
 	}
