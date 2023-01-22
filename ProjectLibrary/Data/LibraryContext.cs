@@ -18,7 +18,7 @@ namespace ProjectLibrary.Data
 		{
 			optionsBuilder
 				.UseLazyLoadingProxies()
-				.UseSqlServer(@"Server=localhost\sqlexpress;Database=LibraryDB;Trusted_Connection=True;");
+				.UseSqlServer(DBConfiguration.GetConnectionString());
 		}
 	}
 }
