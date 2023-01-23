@@ -24,7 +24,10 @@ namespace ProjectLibrary.MVVM.ViewModels
 
             NavigateBooksCommand = new RelayCommand(o => { Navigation.NavigateTo<BooksViewModel>(); });
             NavigateReadersCommand = new RelayCommand(o => { Navigation.NavigateTo<ReadersViewModel>(); });
-            NavigateBooksCommand = new RelayCommand(o => { Navigation.NavigateTo<BooksViewModel>(); });
-		}
+            NavigateShelvesCommand = new RelayCommand(o => { Navigation.NavigateTo<ShelvesViewModel>(); });
+
+            NavigateBooksCommand.Execute(null);
+
+        }
 	}
 }
