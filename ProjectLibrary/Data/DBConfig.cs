@@ -11,7 +11,7 @@ namespace ProjectLibrary.Data
 				 .SetBasePath(Directory.GetCurrentDirectory())
 				 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 			var configuration = configurationBuilder.Build();
-			string connectionString = configuration["DataBase"].["ConnectionString"];
+			string connectionString = configuration["ConnectionString"];
 			return connectionString;
 		}
 	}
