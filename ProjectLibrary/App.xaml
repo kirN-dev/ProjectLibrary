@@ -3,10 +3,21 @@
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:local="clr-namespace:ProjectLibrary"
-	StartupUri=".\MVVM\Views\MainWindow.xaml">
-	<Application.Resources>
-		<ResourceDictionary>
-			
-		</ResourceDictionary>
-	</Application.Resources>
+    xmlns:viewModel="clr-namespace:ProjectLibrary.MVVM.ViewModels"
+    xmlns:view="clr-namespace:ProjectLibrary.MVVM.Views">
+    <Application.Resources>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:BooksViewModel}">
+            <view:BooksView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:ReadersViewModel}">
+            <view:ReadersView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:ShelvesViewModel}">
+            <view:ShelvesView/>
+        </DataTemplate>
+        
+    </Application.Resources>
 </Application>
