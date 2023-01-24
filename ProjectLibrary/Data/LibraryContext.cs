@@ -3,7 +3,7 @@ using ProjectLibrary.Data.Entities;
 
 namespace ProjectLibrary.Data
 {
-	internal class LibraryContext : DbContext
+	public class LibraryContext : DbContext
 	{
 		public DbSet<Book> Books { get; set; }
 		public DbSet<Shelf> Shelves { get; set; }
@@ -14,6 +14,11 @@ namespace ProjectLibrary.Data
 			optionsBuilder
 				.UseLazyLoadingProxies()
 				.UseSqlServer(DBConfiguration.GetConnectionString());
+
+
 		}
+		
+
+
 	}
 }
