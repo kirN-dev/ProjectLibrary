@@ -1,5 +1,6 @@
 ﻿using ProjectLibrary.Core;
 using ProjectLibrary.Services;
+using System.Windows;
 
 namespace ProjectLibrary.MVVM.ViewModels
 {
@@ -10,6 +11,7 @@ namespace ProjectLibrary.MVVM.ViewModels
         public RelayCommand NavigateBooksCommand { get; set; }
         public RelayCommand NavigateReadersCommand { get; set; }
         public RelayCommand NavigateShelvesCommand { get; set; }
+        public RelayCommand QuitCommand { get; set; }
 
         public INavigationService Navigation
         {
@@ -25,6 +27,7 @@ namespace ProjectLibrary.MVVM.ViewModels
             NavigateBooksCommand = new RelayCommand(o => { Navigation.NavigateTo<BooksViewModel>(); });
             NavigateReadersCommand = new RelayCommand(o => { Navigation.NavigateTo<ReadersViewModel>(); });
             NavigateShelvesCommand = new RelayCommand(o => { Navigation.NavigateTo<ShelvesViewModel>(); });
+			QuitCommand = new RelayCommand(o => Application.Current.Shutdown());
 
             NavigateBooksCommand.Execute(null);
 
