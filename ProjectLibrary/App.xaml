@@ -7,11 +7,12 @@
 	xmlns:viewModel="clr-namespace:ProjectLibrary.MVVM.ViewModels">
 	<Application.Resources>
 
-		
+
 		<ResourceDictionary>
 
 			<ResourceDictionary.MergedDictionaries>
 				<ResourceDictionary Source="./Theme/ListViewTheme.xaml" />
+				<ResourceDictionary Source="./Theme/LabelTheme.xaml" />
 			</ResourceDictionary.MergedDictionaries>
 
 			<DataTemplate DataType="{x:Type TypeName=viewModel:BooksViewModel}">
@@ -24,6 +25,18 @@
 
 			<DataTemplate DataType="{x:Type TypeName=viewModel:ShelvesViewModel}">
 				<view:ShelvesView />
+			</DataTemplate>
+
+			<DataTemplate DataType="{x:Type TypeName=viewModel:BookEditerViewModel}">
+				<view:AddEditBookView />
+			</DataTemplate>
+
+			<DataTemplate DataType="{x:Type TypeName=viewModel:ShelfEditerViewModel}">
+				<view:ShelfEditerView />
+			</DataTemplate>
+
+			<DataTemplate DataType="{x:Type TypeName=viewModel:ReaderEditerViewModel}">
+				<view:ReaderEditerView />
 			</DataTemplate>
 
 		</ResourceDictionary>

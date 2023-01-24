@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using ProjectLibrary.Core;
+using ProjectLibrary.Data;
 using ProjectLibrary.MVVM.ViewModels;
 using ProjectLibrary.MVVM.Views;
 using ProjectLibrary.Services;
@@ -28,6 +30,11 @@ namespace ProjectLibrary
 			services.AddSingleton<BooksViewModel>();
 			services.AddSingleton<ReadersViewModel>();
 			services.AddSingleton<ShelvesViewModel>();
+			services.AddSingleton<BookEditerViewModel>();
+			services.AddSingleton<ShelfEditerViewModel>();
+			services.AddSingleton<ReaderEditerViewModel>();
+
+			services.AddDbContext<LibraryContext>();
 
 			services.AddSingleton<INavigationService, NavigationService>();
 
@@ -41,7 +48,9 @@ namespace ProjectLibrary
 			var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
 			mainWindow.Show();
 
-            base.OnStartup(e);
+			var dbContext = _serviceProvider.GetRequiredService<LibraryContext>();
+			dbContext.Database.Migrate();
+			base.OnStartup(e);
         }
     }
 }
